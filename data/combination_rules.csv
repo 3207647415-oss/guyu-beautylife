@@ -1,0 +1,10 @@
+rule_id,ingredient_a,ingredient_b,relation_type,severity,description,recommendation,source,confidence
+R001,Salicylic Acid,Retinol,刺激叠加,提示,同时使用含两者的产品可能增加干燥和刺激；不能仅凭共现判断配方不安全。,提示查看产品说明及耐受情况；避免自行集中引入多种刺激性产品。,Cleveland Clinic；Retinol and salicylic acid；https://my.clevelandclinic.org/health/drugs/23293-retinol,中
+R002,Glycolic Acid,Retinol,刺激叠加,提示,两者均可能刺激，提示适用于护肤产品叠用场景，非配方禁忌判定。,提示分开引入及观察耐受；需要时向皮肤科咨询。,Cleveland Clinic；Retinol and glycolic acid；https://my.clevelandclinic.org/health/drugs/23293-retinol,中
+R003,Lactic Acid,Retinol,刺激叠加,提示,AHA与维A类同用可能刺激；证据为机构科普，非定量配方试验。,避免自行密集叠加；结合使用频率、浓度和个人反应判断。,British Skin Foundation；AHAs and retinoids；https://www.britishskinfoundation.org.uk/resources/which-pharmaceutical-skincare-you-shouldnt-mix-and-why,中
+R004,Ascorbic Acid,Retinol,刺激叠加,提示,两类产品各可产生刺激，机构建议逐个引入观察。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://my.clevelandclinic.org/health/drugs/23293-retinol # Retinol and vitamin C,中
+R005,Glycolic Acid,Ascorbic Acid,刺激叠加,提示,机构科普提示AHA与维生素C叠用可能刺激；仅限护肤叠用提示。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://www.britishskinfoundation.org.uk/resources/which-pharmaceutical-skincare-you-shouldnt-mix-and-why # Vitamin C,中
+R006,Lactic Acid,Ascorbic Acid,刺激叠加,提示,从原文AHA类建议映射至乳酸；是类别外推，非该成分对的定量试验。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://www.britishskinfoundation.org.uk/resources/which-pharmaceutical-skincare-you-shouldnt-mix-and-why # Vitamin C,低
+R007,Hyaluronic Acid,Retinol,弱相互作用,提示,耐受支持提示：机构说明透明质酸保湿可能缓解维A醇部分刺激；不代表任意配方均耐受。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://my.clevelandclinic.org/health/drugs/23293-retinol # Retinol and hyaluronic acid,中
+R008,Niacinamide,Retinol,弱相互作用,提示,耐受支持提示：机构说明烟酰胺可能缓解维A醇刺激；不得用于抵消个人黑名单。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://my.clevelandclinic.org/health/drugs/23293-retinol # Retinol and niacinamide,中
+R009,Glycolic Acid,Salicylic Acid,刺激叠加,提示,机构科普提示叠用可干燥、刺激或过度去角质；只作定性提示，不采纳其无条件禁配表述。,结合产品浓度、说明、使用频率和个人反应观察；不能仅凭共现判配方不安全。,https://www.westlakedermatology.com/blog/skin-care-ingredients-that-do-now-work-well-together/ # Glycolic Acid + Salicylic Acid,中

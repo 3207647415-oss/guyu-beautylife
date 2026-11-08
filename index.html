@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b5c45">
+  <meta name="description" content="肤知AI：基于个人肤况、过敏史与可追溯证据的护肤决策助手公开体验版。">
+  <title>肤知AI｜个人化护肤决策助手</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div>
+  <div class="page-glow page-glow-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="肤知AI首页">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48"><path d="M24 5c8 7 15 15 15 24a15 15 0 0 1-30 0C9 20 16 12 24 5Z"/><path class="brand-cut" d="M17 30c4-7 9-10 17-13-2 8-7 14-17 17"/></svg>
+      </span>
+      <span><strong>肤知AI</strong><small>SKIN INTELLIGENCE</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="privacy-pill"><i></i> 数据仅存当前浏览器</span>
+      <button class="ghost-button compact" id="resetAll" type="button">重置体验</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>PUBLIC DEMO</span> 把成分表，变成适合你的下一步</div>
+        <h1>不是“它安全吗”，<br><em>而是“它现在适合我吗”</em></h1>
+        <p>结合个人过敏史、当下肤况与可追溯证据，给出分级、可解释、能行动的护肤建议。</p>
+        <div class="hero-actions">
+          <button class="primary-button" type="button" data-go="review">开始审查配方 <span>→</span></button>
+          <button class="text-button" type="button" data-go="profile">查看肤况如何变化 <span>↗</span></button>
+        </div>
+        <div class="trust-row" aria-label="体验版能力">
+          <div><strong>33</strong><span>条精标原料</span></div>
+          <div><strong>9</strong><span>组叠加规则</span></div>
+          <div><strong>100%</strong><span>结论附出处</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="个性化结论演示">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="formula-card floating-card">
+          <span class="mini-label">FORMULA 01</span>
+          <strong>含水杨酸 · 视黄醇</strong>
+          <div class="ingredient-dots"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="verdict-card floating-card">
+          <div class="verdict-icon">!</div>
+          <div><span>个性化结论</span><strong>暂缓使用</strong><small>术后状态 · 刺激叠加</small></div>
+        </div>
+        <div class="evidence-card floating-card"><span>✓</span><div><strong>证据已追溯</strong><small>官方机构 / 专业组织</small></div></div>
+        <div class="skin-sphere"><span class="sphere-shine"></span><span class="sphere-ring"></span></div>
+      </div>
+    </section>
+
+    <section class="workspace" id="experience">
+      <div class="section-heading">
+        <div><span class="section-kicker">INTERACTIVE EXPERIENCE</span><h2>亲手走完一次个性化决策</h2></div>
+        <p>建议按“审查配方 → 记录肤况”的顺序体验，约 90 秒。</p>
+      </div>
+
+      <div class="tablist" role="tablist" aria-label="产品体验模块">
+        <button class="tab active" id="tab-review" role="tab" aria-selected="true" aria-controls="panel-review" data-tab="review"><span>01</span> 配方安全审查</button>
+        <button class="tab" id="tab-profile" role="tab" aria-selected="false" aria-controls="panel-profile" data-tab="profile"><span>02</span> 动态护肤档案</button>
+      </div>
+
+      <section class="tab-panel active" id="panel-review" role="tabpanel" aria-labelledby="tab-review">
+        <div class="app-grid">
+          <aside class="profile-panel card">
+            <div class="card-label">当前决策档案</div>
+            <div class="profile-switch" role="group" aria-label="选择演示档案">
+              <button class="active" type="button" data-profile="sensitive"><span class="avatar warm">敏</span><span><strong>敏感肌 · 术后</strong><small>含个人黑名单</small></span><i>✓</i></button>
+              <button type="button" data-profile="oily"><span class="avatar cool">油</span><span><strong>健康油皮</strong><small>无个人黑名单</small></span><i>✓</i></button>
+            </div>
+            <div class="profile-facts" id="profileFacts"></div>
+            <div class="insight-box"><span>为什么要切换档案？</span><p>同一张成分表，对不同的人、不同阶段，结论可能完全不同。</p></div>
+          </aside>
+
+          <div class="review-panel card">
+            <div class="review-title-row"><div><div class="card-label">粘贴产品成分表</div><h3>今天想用这款产品，可以吗？</h3></div><button class="mini-button" id="loadDemo" type="button">载入路演配方</button></div>
+            <label class="sr-only" for="ingredients">产品成分表</label>
+            <textarea id="ingredients" spellcheck="false">Glycerin, Salicylic Acid, Retinol, Glycolic Acid, Methylparaben, Niacinamide</textarea>
+            <div class="input-meta"><span id="inputCount">已识别 0 项</span><span>支持中英文 / INCI，逗号或换行分隔</span></div>
+            <button class="primary-button full" id="reviewButton" type="button"><span class="scan-icon">⌁</span> 生成我的个性化建议</button>
+            <p class="input-note">体验版使用本地规则与证据库，不会上传你的输入。</p>
+          </div>
+        </div>
+
+        <div class="result-wrap" id="resultWrap" aria-live="polite">
+          <div class="empty-result"><div class="empty-orb">AI</div><h3>你的专属结论会显示在这里</h3><p>系统会依次核对个人黑名单、当前肤况、单成分证据与叠加风险。</p></div>
+        </div>
+      </section>
+
+      <section class="tab-panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile" hidden>
+        <div class="profile-dashboard">
+          <div class="baseline-card card">
+            <div class="dashboard-head"><div><div class="card-label">DYNAMIC BASELINE</div><h3>你的皮肤不是一个固定标签</h3></div><span class="status-chip stable" id="baselineStatus">状态平稳</span></div>
+            <div class="baseline-metrics">
+              <div><span>当前肤质</span><strong id="skinTypeMetric">敏感性皮肤</strong></div>
+              <div><span>最近评分</span><strong><b id="latestScoreMetric">4</b><small> / 5</small></strong></div>
+              <div><span>主要关注</span><strong id="concernMetric">泛红</strong></div>
+              <div><span>已记录</span><strong><b id="recordCountMetric">14</b><small> 次</small></strong></div>
+            </div>
+            <div class="chart-wrap">
+              <div class="chart-title"><span>近 30 天肤况趋势</span><small id="chartSummary">整体平稳，偶有波动</small></div>
+              <div id="skinChart" class="skin-chart" role="img" aria-label="近30天肤况评分折线图"></div>
+            </div>
+            <div class="baseline-note" id="baselineNote"></div>
+          </div>
+
+          <form class="checkin-card card" id="checkinForm">
+            <div class="card-label">今日肤况快照</div>
+            <h3>30 秒，告诉肤知AI你的变化</h3>
+            <label>主观评分 <output id="scoreOutput">2 / 5</output></label>
+            <input type="range" id="skinScore" min="1" max="5" value="2">
+            <fieldset><legend>今天出现了什么？</legend><div class="issue-grid">
+              <label><input type="checkbox" name="issue" value="泛红" checked><span>泛红</span></label>
+              <label><input type="checkbox" name="issue" value="刺痛" checked><span>刺痛</span></label>
+              <label><input type="checkbox" name="issue" value="干燥紧绷"><span>干燥紧绷</span></label>
+              <label><input type="checkbox" name="issue" value="出油"><span>出油</span></label>
+            </div></fieldset>
+            <label for="snapshotNote">备注（可选）</label>
+            <input id="snapshotNote" type="text" maxlength="60" placeholder="例：昨晚第一次使用含酸精华">
+            <button class="primary-button full" type="submit">保存快照并更新基线</button>
+            <button class="text-button center" id="resetSnapshots" type="button">恢复演示初始状态</button>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section class="how-section">
+      <div class="section-heading light"><div><span class="section-kicker">HOW IT WORKS</span><h2>每条建议，都能追问“为什么”</h2></div></div>
+      <div class="how-grid">
+        <article><span>01</span><div class="how-icon">◎</div><h3>读懂你</h3><p>肤质、过敏史、特殊阶段与连续肤况，组成会变化的个人边界。</p></article>
+        <article><span>02</span><div class="how-icon">⌘</div><h3>核对证据</h3><p>先做确定性规则匹配，再给出分级结论；不让“AI感觉”代替依据。</p></article>
+        <article><span>03</span><div class="how-icon">↗</div><h3>给出下一步</h3><p>不只说风险，还会告诉你暂停、错开、减频或咨询专业人士。</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><strong>肤知AI</strong><span>让每一次护肤选择，都更了解自己。</span></div>
+    <div class="footer-note"><strong>重要说明</strong><p>本页面为参赛 MVP 公开体验版，提供的是基于已录入资料的护肤信息提示，不构成医学诊断、处方或完整法规合规审查。出现持续不适、皮损或严重反应时，请停止使用并及时就医。</p></div>
+    <span class="version">PUBLIC MVP · 2026</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
